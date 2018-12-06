@@ -3,6 +3,24 @@
 <@c.page>
     Hello, Admin
 
+    <#if successfullyUpdated??>
+        <div class="alert alert-success" role="alert">
+            User was successfully update!
+        </div>
+    </#if>
+
+    <#if successfullyAdded??>
+        <div class="alert alert-success" role="alert">
+            User was successfully added!
+        </div>
+    </#if>
+
+    <#if successfullyDeleted??>
+        <div class="alert alert-success" role="alert">
+            User was successfully deleted!
+        </div>
+    </#if>
+
     <table class="table table-hover table-bordered">
     <thead>
     <tr>
@@ -27,7 +45,7 @@
         <td>${user.lastName}</td>
         <td>${user.role.name}</td>
         <td><a href="/edit/${user.id}">Edit</a>
-        <a href="/delete/${user.id}" onclick="return confirm('Are you sure?')">Delete</a></td>
+    <a href="/delete/${user.id}" onclick="return confirm('Are you sure?')">Delete</a></td>
         </tr>
     </#list>
     </tbody>

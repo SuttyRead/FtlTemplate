@@ -3,7 +3,6 @@ package com.ua.sutty.spring.service;
 import com.ua.sutty.spring.domain.Role;
 import com.ua.sutty.spring.domain.User;
 import com.ua.sutty.spring.form.UserForm;
-import com.ua.sutty.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ public class SignUpServiceImpl implements SignUpService {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Override
     public void signUp(UserForm userForm){
@@ -31,7 +30,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .role(role)
                 .build();
 
-        userRepository.save(user);
+        userService.save(user);
     }
 
 }

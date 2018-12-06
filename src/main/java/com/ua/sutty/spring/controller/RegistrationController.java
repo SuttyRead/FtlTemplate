@@ -1,5 +1,6 @@
 package com.ua.sutty.spring.controller;
 
+import com.ua.sutty.spring.domain.User;
 import com.ua.sutty.spring.form.UserForm;
 import com.ua.sutty.spring.service.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 @Controller
 public class RegistrationController {
@@ -16,8 +18,8 @@ public class RegistrationController {
     private SignUpService signUpService;
 
     @GetMapping("/registration")
-    public String getLoginPage(HttpSession httpSession){
-        if (httpSession.getAttribute("user") != null) {
+    public String getLoginPage(Principal principal, HttpSession httpSession){
+        if (principal != null) {
             return "redirect:/home";
         }
         return "registration";
@@ -26,7 +28,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String registration(UserForm userForm){
         signUpService.signUp(userForm);
-        return "home";
+        return "redirect:/home";
     }
 
 }

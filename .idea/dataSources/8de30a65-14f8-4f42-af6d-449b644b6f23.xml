@@ -960,61 +960,79 @@
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="241" parent="233" name="PRIMARY">
+    <index id="241" parent="233" name="UK_8sewwnpamngi6b1dwaa88askk">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="242" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="242" parent="234" name="id">
+    <key id="243" parent="233" name="UK_8sewwnpamngi6b1dwaa88askk">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>UK_8sewwnpamngi6b1dwaa88askk</UnderlyingIndexName>
+    </key>
+    <column id="244" parent="234" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="234" name="birthday">
+    <column id="245" parent="234" name="birthday">
       <Position>2</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="234" name="email">
+    <column id="246" parent="234" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="234" name="first_name">
+    <column id="247" parent="234" name="first_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="234" name="last_name">
+    <column id="248" parent="234" name="last_name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="234" name="login">
+    <column id="249" parent="234" name="login">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="234" name="password">
+    <column id="250" parent="234" name="password">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="234" name="role_id">
+    <column id="251" parent="234" name="role_id">
       <Position>8</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="250" parent="234" name="FKn82ha3ccdebhokx3a8fgdqeyy">
+    <index id="252" parent="234" name="UK_ew1hvam8uwaknuaellwhqchhb">
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="253" parent="234" name="FKn82ha3ccdebhokx3a8fgdqeyy">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="251" parent="234" name="PRIMARY">
+    <key id="254" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="255" parent="234" name="UK_ew1hvam8uwaknuaellwhqchhb">
+      <ColNames>login</ColNames>
+      <UnderlyingIndexName>UK_ew1hvam8uwaknuaellwhqchhb</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

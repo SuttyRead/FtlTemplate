@@ -89,17 +89,6 @@
 
         </div>
 
-        <#--<div class="form-group">-->
-            <#--<label class="control-label col-sm-3"-->
-                   <#--for="Role">Role:</label>-->
-            <#--<div class="col-sm-6">-->
-                <#--<select class="form-control" id="Role" name="role">-->
-                    <#--<option value="2">User</option>-->
-                    <#--<option value="1">Admin</option>-->
-                <#--</select>-->
-            <#--</div>-->
-        <#--</div>-->
-
         <div class="form-group">
             <div class="col-sm-1 col-sm-offset-4">
                 <button type="submit" class="btn btn-success">OK</button>
@@ -112,4 +101,23 @@
             </div>
         </div>
     </form>
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        document.getElementById("password").onchange = validatePassword;
+        document.getElementById("confirmPassword").onchange = validatePassword;
+    };
+
+    function validatePassword() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        if (confirmPassword !== password)
+            document.getElementById("confirmPassword").setCustomValidity("Passwords Don't Match");
+        else
+            document.getElementById("confirmPassword").setCustomValidity('');
+    }
+
+</script>
+
 </@c.page>

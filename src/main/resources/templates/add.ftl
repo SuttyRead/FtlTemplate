@@ -86,7 +86,6 @@
                 <input type="date" class="form-control" id="Birthday"
                        placeholder="Enter birthday" name="birthday" required>
             </div>
-
         </div>
 
         <div class="form-group">
@@ -100,9 +99,9 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-inline">
             <div class="col-sm-1 col-sm-offset-4">
-                <button type="submit" class="btn btn-success">OK</button>
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
             <div class="col-sm-1">
                 <a href="/home"
@@ -112,4 +111,20 @@
             </div>
         </div>
     </form>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("password").onchange = validatePassword;
+            document.getElementById("confirmPassword").onchange = validatePassword;
+        };
+        function validatePassword() {
+            var pass2 = document.getElementById("password").value;
+            var pass1 = document.getElementById("confirmPassword").value;
+            if (pass1 !== pass2)
+                document.getElementById("confirmPassword").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("confirmPassword").setCustomValidity('');
+        }
+    </script>
+
 </@c.page>
