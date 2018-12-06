@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class RegistrationController {
 
@@ -14,7 +16,10 @@ public class RegistrationController {
     private SignUpService signUpService;
 
     @GetMapping("/registration")
-    public String getLoginPage(){
+    public String getLoginPage(HttpSession httpSession){
+        if (httpSession.getAttribute("user") != null) {
+            return "redirect:/home";
+        }
         return "registration";
     }
 

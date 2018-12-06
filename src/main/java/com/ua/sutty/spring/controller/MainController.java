@@ -21,9 +21,6 @@ public class MainController {
         UserDetailsImpl userDetails = (UserDetailsImpl)authentication.getPrincipal();
         User user = userDetails.getUser();
         httpSession.setAttribute("user", user);
-//        System.out.println(user);
-
-//        modelMap.addAttribute("user", user);
         return "main";
     }
 

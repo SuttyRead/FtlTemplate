@@ -1,5 +1,6 @@
 package com.ua.sutty.spring.domain;
 
+import com.ua.sutty.spring.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -30,5 +32,17 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    public UserDto toUserDto(){
+        int yearBirthday = birthday.toLocalDate().getYear();
+        int yearNow = LocalDate.now().getYear();
+        return UserDto.builder()
+                .id(id)
+                .login(login)
+                .firstName(firstName)
+                .lastName(lastName)
+                .age(yearNow - yearBirthday)
+                .role(role)
+                .build();
+    }
 
 }

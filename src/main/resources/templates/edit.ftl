@@ -1,7 +1,8 @@
 <#import "parts/common.ftl" as c>
+<#setting date_format="yyyy-MM-dd">
 
 <@c.page>
-    <form method="post" class="form-horizontal" action="/edit">
+    <form method="post" class="form-horizontal" action="/edit${userForEdit.id}">
         <div class="form-group">
             <label class="control-label col-sm-3" for="login">Login:</label>
             <div class="col-sm-6">
@@ -14,6 +15,7 @@
                        pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
                        title="Uppercase and lowercase letter. Must be 2-20 characters. Without specifically characters #,$,% and so on. For example SuttyRead"
                        aria-describedby="loginHelpInline"
+                       value="${userForEdit.login}"
                        required>
                 <small id="loginHelpInline" class="text-muted">
                     Must be 2-20 characters long.
@@ -56,7 +58,7 @@
                 <input type="text" class="form-control" id="email"
                        placeholder="Enter email" name="email" aria-describedby="emailHelpInline"
                        pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.\w{2,4}"
-                       title="Enter correct email. Email must be have @. For example SuttyRead@gmail.com" required>
+                       title="Enter correct email. Email must be have @. For example SuttyRead@gmail.com" value="${userForEdit.email}" required>
             </div>
         </div>
 
@@ -67,7 +69,8 @@
                 <input type="text" class="form-control" id="First Name"
                        placeholder="Enter first name" name="firstName" aria-describedby=firstNameHelpInline"
                        pattern="^[A-Z]{1}[a-z]{1,25}"
-                       title=" Only latin letter. First letter must be uppercase. For example Sutty" required>
+                       title=" Only latin letter. First letter must be uppercase. For example Sutty"
+                       value="${userForEdit.firstName}" required>
             </div>
         </div>
         <div class="form-group">
@@ -77,7 +80,7 @@
                 <input type="text" class="form-control" id="Last Name"
                        placeholder="Enter last name" name="lastName" aria-describedby=lastNameHelpInline"
                        title=" Only latin letter. First letter must be uppercase. For example Read"
-                       pattern="^[A-Z]{1}[a-z]{1,25}" required>
+                       pattern="^[A-Z]{1}[a-z]{1,25}" value="${userForEdit.lastName}" required>
             </div>
         </div>
         <div class="form-group">
@@ -85,25 +88,30 @@
                    for="Birthday">Birthday:</label>
             <div class="col-sm-6">
                 <input type="date" class="form-control" id="Birthday"
-                       placeholder="Enter birthday" name="birthday" required>
+                       placeholder="Enter birthday" name="birthday" required value="${userForEdit.birthday}">
             </div>
-
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-3"
-                   for="Role">Role:</label>
+            <label class="control-label col-sm-3" for="Role">Role:</label>
             <div class="col-sm-6">
-                <select class="form-control" id="Role" name="role">
-                    <option value="2">User</option>
-                    <option value="1">Admin</option>
-                </select>
+                <#if userForEdit.role.id == 1>
+                    <select class="form-control" id="Role" name="role">
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                    </select>
+                    <#else>
+                    <select class="form-control" id="Role" name="role">
+                        <option value="2">User</option>
+                        <option value="1">Admin</option>
+                    </select>
+                </#if>
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-inline">
             <div class="col-sm-1 col-sm-offset-4">
-                <button type="submit" class="btn btn-success">OK</button>
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
             <div class="col-sm-1">
                 <a href="/home"
