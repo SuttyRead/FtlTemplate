@@ -19,7 +19,9 @@ public class LoginController {
         if (request.getParameterMap().containsKey("error")) {
             modelMap.addAttribute("error", true);
         }
+        if (request.getParameterMap().containsKey("signUpSuccess")) {
+            modelMap.addAttribute("signUpSuccess", true);
+        }
         return "login";
     }
-
 }

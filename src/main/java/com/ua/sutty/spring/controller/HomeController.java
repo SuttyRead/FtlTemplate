@@ -37,6 +37,12 @@ public class HomeController {
             if (request.getParameterMap().containsKey("successfullyDeleted")) {
                 model.addAttribute("successfullyDeleted", true);
             }
+            if (request.getParameterMap().containsKey("unknownId")) {
+                model.addAttribute("unknownId", true);
+            }
+            if (request.getParameterMap().containsKey("deleteYourself")) {
+                model.addAttribute("deleteYourself", true);
+            }
             return "admin";
         } else {
             return "user";

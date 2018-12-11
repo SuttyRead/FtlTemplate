@@ -26,6 +26,21 @@
                 Must be 2-20 characters long.
             </small>
         </div>
+        <div class="col-sm-offset-3 col-sm-6 err-message">
+            <#if loginNotPattern??>
+                <div class="alert alert-danger" role="alert">
+                    This login doesn't match pattern ^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$.
+                    With a limit of 2-20 characters, which can be letters
+                    and numbers, the first character is necessarily the letter.
+                    For example SuttyRead
+                </div>
+            </#if>
+            <#if loginAlreadyExist??>
+                <div class="alert alert-danger" role="alert">
+                    This login already exists!
+                </div>
+            </#if>
+        </div>
     </div>
 
     <div class="form-group">
@@ -41,6 +56,22 @@
             <small id="passwordHelpInline" class="text-muted">
                 Lowercase and uppercase Latin letters, numbers, special characters. Minimum 8 characters
             </small>
+        </div>
+        <div class="col-sm-offset-3 col-sm-6 err-message">
+            <#if passwordNotEquals??>
+                <div class="alert alert-danger" role="alert">
+                    Password don't match!
+                </div>
+            </#if>
+            <#if passwordNotPattern??>
+                <div class="alert alert-danger" role="alert">
+                    This login doesn't match pattern
+                    ^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$.
+                    With a limit of 2-20 characters, which can be letters
+                    and numbers, the first character is necessarily the letter.
+                    For example SuttyRead007
+                </div>
+            </#if>
         </div>
     </div>
 
@@ -66,6 +97,15 @@
                    title="Enter correct email. Email must be have @. For example SuttyRead@gmail.com"
                    value="${userForEdit.email}" required>
         </div>
+        <div class="col-sm-offset-3 col-sm-6 err-message">
+            <#if emailNotPattern??>
+                <div class="alert alert-danger" role="alert">
+                    This email doesn't match pattern
+                    \w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.\w{2,4}
+                    For example SuttyRead@gmail.com
+                </div>
+            </#if>
+        </div>
     </div>
 
     <div class="form-group">
@@ -78,7 +118,17 @@
                    title=" Only latin letter. First letter must be uppercase. For example Sutty"
                    value="${userForEdit.firstName}" required>
         </div>
+        <div class="col-sm-offset-3 col-sm-6 err-message">
+            <#if firstNameNotPattern??>
+                <div class="alert alert-danger" role="alert">
+                    This first name doesn't match pattern
+                    ^[A-Z]{1}[a-z]{1,25}
+                    For example Sutty
+                </div>
+            </#if>
+        </div>
     </div>
+
     <div class="form-group">
         <label class="control-label col-sm-3"
                for="Last Name">Last Name:</label>
@@ -88,13 +138,37 @@
                    title=" Only latin letter. First letter must be uppercase. For example Read"
                    pattern="^[A-Z]{1}[a-z]{1,25}" value="${userForEdit.lastName}" required>
         </div>
+        <div class="col-sm-offset-3 col-sm-6 err-message">
+            <#if lastNameNotPattern??>
+                <div class="alert alert-danger" role="alert">
+                    This first name doesn't match pattern
+                    ^[A-Z]{1}[a-z]{1,25}
+                    For example Read
+                </div>
+            </#if>
+        </div>
     </div>
+
     <div class="form-group">
         <label class="control-label col-sm-3"
                for="Birthday">Birthday:</label>
         <div class="col-sm-6">
             <input type="date" class="form-control" id="Birthday"
                    placeholder="Enter birthday" name="birthday" required value="${userForEdit.birthday}">
+        </div>
+        <div class="col-sm-offset-3 col-sm-6 err-message">
+            <#if incorrectDate??>
+                <div class="alert alert-danger" role="alert">
+                    Incorrect birthday
+                    For example 1982-7-27
+                </div>
+            </#if>
+            <#if birthdayNotPattern??>
+                <div class="alert alert-danger" role="alert">
+                    BirthdayNotPattern
+                    For example 1982-7-27
+                </div>
+            </#if>
         </div>
     </div>
 
@@ -133,7 +207,6 @@
         document.getElementById("password").onchange = validatePassword;
         document.getElementById("confirmPassword").onchange = validatePassword;
     };
-
     function validatePassword() {
         var pass2 = document.getElementById("password").value;
         var pass1 = document.getElementById("confirmPassword").value;
@@ -142,7 +215,6 @@
         else
             document.getElementById("confirmPassword").setCustomValidity('');
     }
-
 </script>
 
 

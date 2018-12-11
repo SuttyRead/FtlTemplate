@@ -88,6 +88,20 @@ public class UserService {
         }
     }
 
+    public User findUserByLogin(String login) {
+        if (login == null) {
+            LOGGER.error("Email == null", new NullPointerException());
+            throw new NullPointerException();
+        }
+        try {
+            LOGGER.trace("Call method findUserByLogin");
+            return userRepository.findUserByLogin(login);
+        }catch (Exception e){
+            LOGGER.error("Error in time findUserByLogin", e);
+            throw e;
+        }
+    }
+
     public User findUserById(Long id) {
         if (id == null) {
             LOGGER.error("User(id) == null", new NullPointerException());

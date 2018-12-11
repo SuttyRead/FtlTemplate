@@ -2,6 +2,7 @@
 
 <@c.page>
     Hello, Admin
+    <a href="/add">Add new User</a>
 
     <#if successfullyUpdated??>
         <div class="alert alert-success" role="alert">
@@ -18,6 +19,18 @@
     <#if successfullyDeleted??>
         <div class="alert alert-success" role="alert">
             User was successfully deleted!
+        </div>
+    </#if>
+
+    <#if unknownId??>
+        <div class="alert alert-danger" role="alert">
+            We don't find this user!
+        </div>
+    </#if>
+
+    <#if deleteYourself??>
+        <div class="alert alert-danger" role="alert">
+            You don't delete yourself!
         </div>
     </#if>
 
@@ -42,7 +55,7 @@
         <td>${user.login}</td>
         <td>${user.firstName}</td>
         <td>${user.lastName}</td>
-        <td>${user.lastName}</td>
+        <td>${user.age}</td>
         <td>${user.role.name}</td>
         <td><a href="/edit/${user.id}">Edit</a>
     <a href="/delete/${user.id}" onclick="return confirm('Are you sure?')">Delete</a></td>

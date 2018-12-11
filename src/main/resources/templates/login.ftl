@@ -2,7 +2,10 @@
 
 <@c.page>
     <#if error??>
-        <div class="alert alert-danger" role="alert">Логин или пароль введены неверно</div>
+        <div class="alert alert-danger" role="alert">Login or password incorrect</div>
+    </#if>
+    <#if signUpSuccess??>
+        <div class="alert alert-success" role="alert">Registration success</div>
     </#if>
     <div>
         <form action="/login" method="post">
@@ -16,6 +19,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password"
                        name="password" required>
             </div>
+
             <label for="remember-me">
                 <input type="checkbox" id="remember-me" name="remember-me">Remember me</label>
             <button type="submit" class="btn btn-primary">Submit</button>
