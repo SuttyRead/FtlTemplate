@@ -15,5 +15,23 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="test19" uuid="97c643d0-1c82-4ca9-9bf2-525b3674b24b">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/test19</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="test" uuid="1ed18598-1682-4c7d-9589-a4c286ca31b1">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="test20" uuid="4fd75a7a-b04b-4a97-9180-8c7ba21fbd3e">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/test20</jdbc-url>
+    </data-source>
   </component>
 </project>

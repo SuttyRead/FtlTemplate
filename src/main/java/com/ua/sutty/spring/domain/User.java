@@ -1,14 +1,10 @@
 package com.ua.sutty.spring.domain;
 
 import com.ua.sutty.spring.dto.UserDto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -25,7 +21,6 @@ public class User {
 
     @Column(unique = true)
     private String login;
-
     private String password;
 
     @Transient

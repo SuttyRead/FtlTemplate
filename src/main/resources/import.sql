@@ -1,5 +1,4 @@
-create table persistent_logins(username  tinytext  null, series tinytext null, token tinytext null, last_used timestamp null);
-
+create table persistent_logins(username tinytext  null, series tinytext null, token tinytext null, last_used timestamp null);
 
 INSERT INTO role (name) VALUES ('ADMIN');
 INSERT INTO role (name) VALUES ('USER');
