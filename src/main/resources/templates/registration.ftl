@@ -71,7 +71,8 @@
         <label class="control-label col-sm-3"
                for="confirmPassword">Confirm Password:</label>
         <div class="col-sm-6">
-            <input type="password" class="form-control ${(confirmPasswordError??)?string('is-invalid', '')}" id="confirmPassword"
+            <input type="password" class="form-control ${(confirmPasswordError??)?string('is-invalid', '')}"
+                   id="confirmPassword"
                    placeholder="Confirm password" name="confirmPassword"
                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                    title="Password must be have lowercase and uppercase Latin letters, number. Minimum 8 characters"
@@ -79,11 +80,11 @@
                    required>
         </div>
         <#--<div class="col-sm-offset-3 col-sm-6 err-message">-->
-            <#--<#if confirmPasswordError??>-->
-                <#--<div class="invalid-feedback">-->
-                <#--${confirmPasswordError}-->
-                <#--</div>-->
-            <#--</#if>-->
+        <#--<#if confirmPasswordError??>-->
+        <#--<div class="invalid-feedback">-->
+        <#--${confirmPasswordError}-->
+        <#--</div>-->
+        <#--</#if>-->
         <#--</div>-->
     </div>
 

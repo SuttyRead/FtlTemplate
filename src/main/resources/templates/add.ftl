@@ -37,7 +37,6 @@
         </div>
     </div>
 
-
     <div class="form-group">
         <label class="control-label col-sm-3"
                for="password">Password:</label>
@@ -83,7 +82,6 @@
                    required>
         </div>
     </div>
-
     <div class="form-group">
         <label class="control-label col-sm-3"
                for="email">Email:</label>
@@ -127,6 +125,7 @@
             </#if>
         </div>
     </div>
+
     <div class="form-group">
         <label class="control-label col-sm-3"
                for="Last Name">Last Name:</label>
@@ -147,6 +146,7 @@
             </#if>
         </div>
     </div>
+
     <div class="form-group">
         <label class="control-label col-sm-3"
                for="Birthday">Birthday:</label>
@@ -194,6 +194,7 @@
                aria-pressed="true">Cancel</a>
         </div>
     </div>
+
 </form>
 
 <script type="text/javascript">

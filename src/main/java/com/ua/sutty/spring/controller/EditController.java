@@ -27,7 +27,7 @@ public class EditController {
 
     @GetMapping("/edit/{id}")
     public String getEditPage(@PathVariable Long id, Model model) {
-        if (userService.findUserById(id) == null){
+        if (userService.findUserById(id) == null) {
             return "redirect:/home?unknownId";
         }
         model.addAttribute("userForEdit", userService.findUserById(id));
@@ -35,9 +35,9 @@ public class EditController {
     }
 
     @PostMapping("/edit/{id}")
-    public String edit(@Valid UserForm userForm, BindingResult bindingResult, Model model, @PathVariable Long id){
+    public String edit(@Valid UserForm userForm, BindingResult bindingResult, Model model, @PathVariable Long id) {
         ValidateForm form = new ValidateForm(model, userService, userForm);
-        if (!form.checkIncorrectDate() | !form.checkMatchPassword() | bindingResult.hasErrors()){
+        if (!form.checkIncorrectDate() | !form.checkMatchPassword() | bindingResult.hasErrors()) {
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errors);
             User userForEdit = userForm.toUser();
@@ -47,7 +47,7 @@ public class EditController {
         }
         User user = userForm.toUser();
         user.setId(id);
-        if (!user.getPassword().equals(userService.findUserById(id).getPassword())){
+        if (!user.getPassword().equals(userService.findUserById(id).getPassword())) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             System.out.println("Correct password");
         }

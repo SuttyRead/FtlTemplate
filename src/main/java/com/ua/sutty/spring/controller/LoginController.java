@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
 
     @GetMapping("/login")
-    public String getLoginPage(Authentication authentication, ModelMap modelMap, HttpServletRequest request){
-        if (authentication != null){
+    public String getLoginPage(Authentication authentication, ModelMap modelMap, HttpServletRequest request) {
+        if (authentication != null) {
             return "redirect:/";
         }
         if (request.getParameterMap().containsKey("error")) {
@@ -24,4 +24,5 @@ public class LoginController {
         }
         return "login";
     }
+
 }

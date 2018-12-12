@@ -17,7 +17,7 @@ public class SignUpServiceImpl implements SignUpService {
     private UserService userService;
 
     @Override
-    public void signUp(UserForm userForm){
+    public void signUp(UserForm userForm) {
         String hashPassword = passwordEncoder.encode(userForm.getPassword());
         Role role = new Role(2L, "USER");
         User user = User.builder()

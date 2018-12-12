@@ -52,10 +52,10 @@ public class RoleService {
             LOGGER.error("Name == null", new NullPointerException());
             throw new NullPointerException();
         }
-        try{
+        try {
             LOGGER.trace("Call method findRoleByName");
             return roleRepository.findRoleByName(name);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in time findRoleByName", e);
             throw e;
         }
@@ -69,7 +69,7 @@ public class RoleService {
         try {
             LOGGER.trace("Call method findRoleById");
             return roleRepository.findRoleById(id);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in time findRoleById", e);
             throw e;
         }

@@ -41,7 +41,7 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    public UserDto toUserDto(){
+    public UserDto toUserDto() {
         int yearBirthday = birthday.toLocalDate().getYear();
         int yearNow = LocalDate.now().getYear();
         return UserDto.builder()

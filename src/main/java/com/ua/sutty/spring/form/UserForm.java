@@ -38,7 +38,7 @@ public class UserForm {
     private String lastName;
     private Date birthday;
 
-    public User toUser(){
+    public User toUser() {
         Role role = new Role(2L, "USER");
         return User.builder()
                 .login(login)

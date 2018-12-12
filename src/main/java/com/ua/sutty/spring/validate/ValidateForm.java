@@ -18,28 +18,28 @@ public class ValidateForm {
         this.userForm = userForm;
     }
 
-    public Boolean checkAlreadyExist(){
+    public Boolean checkAlreadyExist() {
         if (userService.findUserByLogin(userForm.getLogin()) == null) {
             return true;
-        }else {
+        } else {
             model.addAttribute("loginAlreadyExist", "Login already exist");
             return false;
         }
     }
 
-    public Boolean checkMatchPassword(){
+    public Boolean checkMatchPassword() {
         if (userForm.getPassword().equals(userForm.getConfirmPassword())) {
             return true;
-        }else {
+        } else {
             model.addAttribute("passwordError", "Passwords are different!");
             return false;
         }
     }
 
-    public Boolean checkIncorrectDate(){
+    public Boolean checkIncorrectDate() {
         if (userForm.getBirthday().toLocalDate().isBefore(LocalDate.now())) {
             return true;
-        }else {
+        } else {
             model.addAttribute("incorrectDate", "Incorrect birthday");
             return false;
         }

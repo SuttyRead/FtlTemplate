@@ -54,22 +54,8 @@ public class UserService {
         try {
             LOGGER.trace("Call method findAll");
             return userRepository.findAll();
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in time findAll", e);
-            throw e;
-        }
-    }
-
-    public Optional<User> findOneByLogin(String login) {
-        if (login == null) {
-            LOGGER.error("login == null", new NullPointerException());
-            throw new NullPointerException();
-        }
-        try{
-            LOGGER.trace("Call method findOneByLogin");
-            return userRepository.findOneByLogin(login);
-        }catch (Exception e){
-            LOGGER.error("Error in time findOneByLogin", e);
             throw e;
         }
     }
@@ -82,7 +68,7 @@ public class UserService {
         try {
             LOGGER.trace("Call method findUserByEmail");
             return userRepository.findUserByEmail(email);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in time findUserByEmail", e);
             throw e;
         }
@@ -96,7 +82,7 @@ public class UserService {
         try {
             LOGGER.trace("Call method findUserByLogin");
             return userRepository.findUserByLogin(login);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in time findUserByLogin", e);
             throw e;
         }
@@ -110,7 +96,7 @@ public class UserService {
         try {
             LOGGER.trace("Call method findUserById");
             return userRepository.findUserById(id);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in time findUserById", e);
             throw e;
         }
@@ -124,7 +110,7 @@ public class UserService {
         try {
             LOGGER.trace("Call method deleteUserById");
             userRepository.deleteUserById(id);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in time deleteUserById", e);
             throw e;
         }

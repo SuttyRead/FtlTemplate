@@ -33,13 +33,12 @@ public class AddController {
     public String add(@Valid UserForm userForm, BindingResult bindingResult, Model model) {
         ValidateForm form = new ValidateForm(model, userService, userForm);
         if (!form.checkAlreadyExist() || !form.checkIncorrectDate()
-                || !form.checkMatchPassword() || bindingResult.hasErrors()){
+                || !form.checkMatchPassword() || bindingResult.hasErrors()) {
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errors);
             model.addAttribute("newUser", userForm);
             return "add";
         }
-
         User user = userForm.toUser();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.save(user);

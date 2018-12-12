@@ -15,8 +15,8 @@ public class DeleteController {
     private UserService userService;
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Long id, Authentication authentication){
-        if (userService.findUserById(id).equals(((UserDetailsImpl) authentication.getPrincipal()).getUser())){
+    public String delete(@PathVariable Long id, Authentication authentication) {
+        if (userService.findUserById(id).equals(((UserDetailsImpl) authentication.getPrincipal()).getUser())) {
             return "redirect:/home?deleteYourself";
         }
         userService.deleteUserById(id);

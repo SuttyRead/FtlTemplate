@@ -1,14 +1,12 @@
 package com.ua.sutty.spring.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
@@ -18,10 +16,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
+    @NonNull
     private String name;
-
-    public Role(String name) {
-        this.name = name;
-    }
 
 }

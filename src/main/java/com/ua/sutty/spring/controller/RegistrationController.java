@@ -38,7 +38,7 @@ public class RegistrationController {
     private UserService userService;
 
     @GetMapping("/registration")
-    public String getLoginPage(Principal principal){
+    public String getLoginPage(Principal principal) {
         if (principal != null) {
             return "redirect:/home";
         }
@@ -46,7 +46,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String registration(@Valid UserForm userForm, @RequestParam("g-recaptcha-response") String captchaResponse, BindingResult bindingResult, Model model){
+    public String registration(@Valid UserForm userForm, @RequestParam("g-recaptcha-response") String captchaResponse, BindingResult bindingResult, Model model) {
         String url = String.format(CAPTCHA_URL, secret, captchaResponse);
         CaptchaResponseDto response = restTemplate.postForObject(url, Collections.emptyList(), CaptchaResponseDto.class);
 
@@ -56,7 +56,7 @@ public class RegistrationController {
 
         ValidateForm form = new ValidateForm(model, userService, userForm);
         if (!form.checkAlreadyExist() || !form.checkIncorrectDate() || !response.isSuccess()
-                || !form.checkMatchPassword() || bindingResult.hasErrors()){
+                || !form.checkMatchPassword() || bindingResult.hasErrors()) {
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errors);
             model.addAttribute("newUser", userForm);

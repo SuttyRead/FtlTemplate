@@ -2,11 +2,13 @@
 <#setting date_format="yyyy-MM-dd">
 
 <@c.page>
+
     <#if successfullyUpdate??>
         <div class="alert alert-success" role="alert">
             User was successfully update!
         </div>
     </#if>
+
 <form method="post" class="form-horizontal" action="/edit/${userForEdit.id}">
     <div class="form-group">
         <label class="control-label col-sm-3" for="login">Login:</label>
@@ -200,6 +202,7 @@
                aria-pressed="true">Cancel</a>
         </div>
     </div>
+
 </form>
 
 <script type="text/javascript">
@@ -207,6 +210,7 @@
         document.getElementById("password").onchange = validatePassword;
         document.getElementById("confirmPassword").onchange = validatePassword;
     };
+
     function validatePassword() {
         var pass2 = document.getElementById("password").value;
         var pass1 = document.getElementById("confirmPassword").value;

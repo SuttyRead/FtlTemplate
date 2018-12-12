@@ -23,7 +23,6 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest(classes = Application.class)
 public class RoleServiceTest {
 
-
     @Autowired
     private DataSource dataSource;
 
@@ -96,6 +95,5 @@ public class RoleServiceTest {
         assertEquals("Size database shouldn't change", 3,
                 iDatabaseTester.getDataSet().getTable("role").getRowCount());
     }
-
 
 }
